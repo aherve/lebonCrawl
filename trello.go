@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/adlio/trello"
 	"github.com/joho/godotenv"
 	"log"
@@ -28,7 +29,7 @@ func (card cardStruct) Export() error {
 
 	// Create card (without attachment, unfortunately)
 	tCard := trello.Card{
-		Name:   card.Title,
+		Name:   fmt.Sprintf("%s - %s", card.Title, card.Price),
 		Desc:   card.URL,
 		IDList: listID,
 	}
